@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CustomerService } from '../../services/customer.service';
@@ -7,12 +7,13 @@ import { ErrorHandlerService } from '../../services/error-handler.service';
 import { Customer } from '../../models/customer';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../shared/button/button.component';
+import { TextInputComponent } from './text-input/text-input.component';
 import { NotificationComponent } from '../shared/notification/notification.component';
 
 
 @Component({
     selector: 'app-customer-form',
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, ButtonComponent, NotificationComponent],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, ButtonComponent, NotificationComponent, TextInputComponent],
     templateUrl: './customer-form.component.html',
     styleUrls: ['./customer-form.component.scss'],
 })
@@ -75,5 +76,28 @@ export class CustomerFormComponent implements OnInit {
                 }
             });
         }
+    }
+    get id(): FormControl {
+    return this.customerForm.get('id') as FormControl;
+    }
+
+    get name(): FormControl {
+      return this.customerForm.get('name') as FormControl;
+    }
+
+    get surname(): FormControl {
+      return this.customerForm.get('surname') as FormControl;
+    }
+
+    get email(): FormControl {
+      return this.customerForm.get('email') as FormControl;
+    }
+
+    get birthdate(): FormControl {
+      return this.customerForm.get('birthdate') as FormControl;
+    }
+
+    get companyId(): FormControl {
+      return this.customerForm.get('companyId') as FormControl;
     }
 }

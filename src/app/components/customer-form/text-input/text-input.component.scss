@@ -1,0 +1,46 @@
+$dark-red: #8d0000;
+$dark-grey: #cccccc;
+$dark-blue: #3f51b5;
+
+.form-group {
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input.form-control {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid $dark-grey;
+  border-radius: 4px;
+  transition: border-color 0.75s ease;
+  &:focus {
+    border-color: $dark-blue;
+    outline: none;
+  }
+}
+
+input.form-control.ng-invalid.ng-touched {
+  border-color: $dark-red;
+  &:focus {
+    border-color: $dark-blue;
+    outline: none;
+  }
+}
+
+.error small{
+  color: $dark-red;
+  font-size: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  color: $dark-red;
+}
+
+.error small.show-error {
+  opacity: 1;
+}

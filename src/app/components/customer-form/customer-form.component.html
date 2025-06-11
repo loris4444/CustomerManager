@@ -2,36 +2,30 @@
   <app-button [routerLink]="['']">Indietro</app-button>
   <h1>{{ isEditMode ? 'Modifica' : 'Crea nuovo' }} cliente</h1>
 </div>
-
+<hr>
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="id">ID:</label>
-    <input id="id" type="text" formControlName="id"/>
+    <app-text-input [control]="id" label="Id:" inputId="id"/>
   </div>
 
   <div>
-    <label for="name">Nome:</label>
-    <input id="name" type="text" formControlName="name" />
+    <app-text-input [control]="name" label="Nome:" inputId="name"/>
   </div>
 
   <div>
-    <label for="surname">Cognome:</label>
-    <input id="surname" type="text" formControlName="surname" />
+    <app-text-input [control]="surname" label="Cognome:" inputId="surname"/>
   </div>
 
   <div>
-    <label for="email">Email:</label>
-    <input id="email" type="email" formControlName="email" />
+    <app-text-input [control]="email" label="Email:" type="email" inputId="email"/>
   </div>
 
   <div>
-    <label for="birthdate">Data di nascita:</label>
-    <input id="birthdate" type="date" formControlName="birthdate" />
+    <app-text-input [control]="birthdate" label="Data di nascita:" type="date" inputId="birthdate"/>
   </div>
 
   <div>
-    <label for="companyId">ID Azienda:</label>
-    <input id="companyId" type="text" formControlName="companyId" />
+    <app-text-input [control]="companyId" label="ID Azienda:" inputId="companyId"/>
   </div>
 
   <app-button type="submit" [disabled]="customerForm.invalid">
