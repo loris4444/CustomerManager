@@ -1,0 +1,46 @@
+<div class="header">
+  <app-button [routerLink]="['']">Indietro</app-button>
+  <h1>{{ isEditMode ? 'Modifica' : 'Crea nuovo' }} cliente</h1>
+</div>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="id">ID:</label>
+    <input id="id" type="text" formControlName="id"/>
+  </div>
+
+  <div>
+    <label for="name">Nome:</label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="surname">Cognome:</label>
+    <input id="surname" type="text" formControlName="surname" />
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+  </div>
+
+  <div>
+    <label for="birthdate">Data di nascita:</label>
+    <input id="birthdate" type="date" formControlName="birthdate" />
+  </div>
+
+  <div>
+    <label for="companyId">ID Azienda:</label>
+    <input id="companyId" type="text" formControlName="companyId" />
+  </div>
+
+  <app-button type="submit" [disabled]="customerForm.invalid">
+    {{ isEditMode ? 'Aggiorna' : 'Crea' }}
+  </app-button>
+</form>
+
+<app-notification-modal
+  *ngIf="showNotification"
+  message="{{ notificationMessage }}"
+  (closed)="showNotification = false"
+></app-notification-modal>

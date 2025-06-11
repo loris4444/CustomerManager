@@ -1,0 +1,39 @@
+<div class="header">
+  <h1>Lista clienti</h1>
+  <app-button [routerLink]="['/create']" color="success">Crea nuovo cliente</app-button>
+</div>
+  <table *ngIf="customers.length > 0 else NoCustomers">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Denominazione</th>
+        <th>Email</th>
+        <th>Compagnia</th>
+        <th colspan="2">Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customers">
+        <td>{{ c.id }}</td>
+        <td>{{ c.denomination }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.companyName }}</td>
+        <td>
+          <app-button [routerLink]="['/edit', c.id]">Modifica</app-button>
+        </td>
+        <td>
+          <app-button color="danger" (clicked)="deleteCustomer(c.id)">Elimina</app-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<ng-template #NoCustomers>
+  <p>Nessun cliente trovato.</p>
+</ng-template>
+
+<app-notification-modal
+  *ngIf="showNotification"
+  (closed)="showNotification = false"
+  [message]="notificationMessage"
+></app-notification-modal>
