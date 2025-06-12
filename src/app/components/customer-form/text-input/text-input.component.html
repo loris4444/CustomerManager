@@ -1,13 +1,23 @@
 <div class="form-group">
-  <label [for]="inputId">{{ label }}</label>
+  <label [for]="inputId">
+    <span *ngIf="tooltipText"
+      class="pi pi-info-circle"
+      pTooltip="{{ tooltipText }}" 
+      pTooltip="Inserisci la tua email aziendale" 
+      tooltipPosition="top">
+    </span>
+    {{ label }}
+  </label>
+
   <input
+    pInputText
     [id]="inputId"
     [type]="type"
     [formControl]="control"
   />
   <div class="error">
     <small
-      [class.show-error]="control.invalid && (control.dirty || control.touched)">
+      [class.show-error]="control.invalid && control.dirty">
       {{ control.errors | errorMessage }}
     </small>
   </div>

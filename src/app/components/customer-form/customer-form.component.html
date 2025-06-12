@@ -5,11 +5,11 @@
 <hr>
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
   <div>
-    <app-text-input [control]="id" label="Id:" inputId="id"/>
+    <app-text-input [control]="id" label="Id:" inputId="id" tooltipText="id del cliente"/>
   </div>
 
   <div>
-    <app-text-input [control]="name" label="Nome:" inputId="name"/>
+    <app-text-input [control]="name" label="Nome:" inputId="name" tooltipText="nome del cliente"/>
   </div>
 
   <div>
