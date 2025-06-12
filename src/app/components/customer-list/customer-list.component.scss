@@ -1,6 +1,6 @@
-$hover-color: #f4faff;
+$hover-color: #003662;
 $border-color: #ededed;
-$header-bg: #f4f4f4;
+$header-bg: #575757;
 $row-alt-bg: #f9f9f9;
 
 .header {
@@ -38,7 +38,7 @@ table {
 
   tbody {
     tr {
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid;
       transition: 0.2s ease;
 
       &:hover {

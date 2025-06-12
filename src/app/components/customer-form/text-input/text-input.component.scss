@@ -1,6 +1,5 @@
-$dark-red: #8d0000;
+$dark-red: #ff3f3f;
 $dark-grey: #cccccc;
-$dark-blue: #3f51b5;
 
 .form-group {
   font-family: Arial;
@@ -19,21 +18,14 @@ input {
   border: 2px solid $dark-grey;
   border-radius: 4px;
   transition: border-color 0.75s ease;
-  &:focus {
-    border-color: $dark-blue;
-    outline: none;
-  }
+
 }
 
-input.ng-invalid.ng-touched {
-  border-color: $dark-red;
-  &:focus {
-    border-color: $dark-blue;
-    outline: none;
-  }
+.error {
+    min-height: 1.2rem;
 }
 
-.error small{
+.error small {
   color: $dark-red;
   font-size: 0.875rem;
   opacity: 0;
